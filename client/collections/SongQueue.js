@@ -9,9 +9,9 @@ var SongQueue = Songs.extend({
       }
     }, this);
 
-    this.on('ended', function() {
+    this.on('ended', function(song) {
       //remove the first song
-      this.remove(this.at(0));
+      this.remove(song);
       //it there is another song play it
       if(this.length > 0){
         this.playFirst();
