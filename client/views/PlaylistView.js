@@ -4,9 +4,7 @@ var PlaylistView = Backbone.View.extend({
 
   initialize: function() {
     this.render();
-    //listen for changes in song queue
-    this.model.get('songQueue').on('add', this.render, this);
-    this.model.get('songQueue').on('remove',this.render, this);
+    this.addSongQueueListeners();
   },
 
   render: function() {
@@ -22,6 +20,13 @@ var PlaylistView = Backbone.View.extend({
   setPlaylist: function(playlist) {
     this.model = playlist;
     this.render();
+    this.addSongQueueListeners();
+  },
+
+  addSongQueueListeners: function() {
+    //listen for changes in song queue
+    this.model.get('songQueue').on('add', this.render, this);
+    this.model.get('songQueue').on('remove',this.render, this);
   }
 
 });

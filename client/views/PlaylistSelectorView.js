@@ -1,9 +1,16 @@
+//collection: playlists
 var PlaylistSelectorView = Backbone.View.extend({
   tagName: 'div',
 
   events: {
     //'click button' --> model function
     //'click button':
+
+    'change': function(e) {
+      var selectedIndex = e.target.selectedIndex;
+      //we really just the first one though, since you can only select one at a time anyway
+      this.collection.at(selectedIndex).selected();
+    }
   },
 
   initialize: function() {
