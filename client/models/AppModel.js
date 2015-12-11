@@ -21,7 +21,8 @@ var AppModel = Backbone.Model.extend({
     }, this);
 
     this.get('playlists').on('selected', function(playlist){
-      this.set('currentPlaylist',playlist);
+      this.set('currentPlaylist', playlist);
+      playlist.get('songQueue').playFirst();
     }, this);
 
     params.library.on('enqueue', function(song) {

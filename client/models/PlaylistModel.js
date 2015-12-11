@@ -8,7 +8,6 @@ var PlaylistModel = Backbone.Model.extend({
   },
 
   selected: function() {
-    console.log('hi');
     this.trigger('selected',this);
   }
 });
