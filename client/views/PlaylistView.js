@@ -17,6 +17,11 @@ var PlaylistView = Backbone.View.extend({
       return songQueueEntryView.render();
     }));
 
+  },
+
+  setPlaylist: function(playlist) {
+    this.model = playlist;
+    this.render();
   }
 
 });

@@ -2,7 +2,8 @@ var PlaylistSelectorView = Backbone.View.extend({
   tagName: 'div',
 
   events: {
-
+    //'click button' --> model function
+    //'click button':
   },
 
   initialize: function() {
@@ -14,7 +15,7 @@ var PlaylistSelectorView = Backbone.View.extend({
     var $dropdown = $('<select></select>');
     //append a map over collection: playlist --> '<option>playlistName</option>'
     $dropdown.append(this.collection.map(function(playlist) {
-      return $('<option>' + playlist.get('name') + '</option>');
+      return new PlaylistSelectorEntryView({model: playlist}).render();
     }));
 
     //create text field to put a new playlist name

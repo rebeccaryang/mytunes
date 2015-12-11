@@ -1,5 +1,8 @@
 var Playlists = Backbone.Collection.extend({
 
-  model: PlaylistModel
-  
+  model: PlaylistModel,
+
+  selected: function(playlist) {
+    
+  }
 });
